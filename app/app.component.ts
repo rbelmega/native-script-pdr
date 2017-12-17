@@ -1,12 +1,23 @@
 import { Component } from "@angular/core";
+import {RouterExtensions} from "nativescript-angular/router";
 
 @Component({
   selector: "my-app",
   template: `
-    <ActionBar title="My App" class="action-bar"></ActionBar>
-    <!-- Your UI components go here -->
+<ActionBar title="Правила дорожнього руху">
+  <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" 
+    (tap)="onNavBtnTap()"></NavigationButton>
+</ActionBar>
+    <WrapLayout> 
+                          <router-outlet></router-outlet>
+        </WrapLayout>
   `
 })
 export class AppComponent {
-  // Your TypeScript logic goes here
+
+  constructor(private routerExtensions: RouterExtensions){}
+
+    public onNavBtnTap() {
+        this.routerExtensions.back();
+    }
 }

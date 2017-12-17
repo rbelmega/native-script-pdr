@@ -1,0 +1,14 @@
+<div class="list-group">
+	<table class="sign-category-overview">
+		<tr ng-repeat="category in categories"
+				ng-click="setTopic(category.desc); goTo(category.id)">
+			<td class="sign-category-name-image" align="center">
+				<img ng-src="{{category.img}}" width="50px">
+			</td>
+			<td class="sign-category-name">
+				<span>{{category.desc}}</span>
+			</td>
+		</tr>
+
+	</table>
+</div>

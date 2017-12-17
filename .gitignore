@@ -1,4 +1,5 @@
-./.ideatn
-./hooks
-./platforms
-./package-lock.json
+/.idea
+/hooks
+/platforms
+/node_modules
+package-lock.json

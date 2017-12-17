@@ -1,0 +1,14 @@
+<div class="panel panel-default search-item">
+	<div class="panel-body">
+ <span>
+    <p ng-repeat="list in lists" repeat-done="readyList()">
+		<a ng-href="#/show/{{list.id - 1}}">
+			<span class="search-caption">{{list.caption}}</span>
+			<span class="search-text">{{list.text | part1 }}</span>
+			<span style="background: #9ad6dd">{{list.text | showSearchText}}</span>
+			<span class="search-text">{{list.text | part2 }}</span>
+		</a>
+	</p>
+  </span>
+	</div>
+</div>
