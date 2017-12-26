@@ -29,20 +29,27 @@ import {DataService} from '../../services/data.service';
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
 	border-bottom-color: rgb(204, 204, 204);
-	box-shadow: 0 1px 1px #e2e2e2;
+	box-shadow: 0 4px 4px #e2e2e2;
 	width: 100%;
 }
   `],
   template: `
 <ScrollView orientation="vertical" class="panel">
     <WrapLayout >
-        <Label 
-            *ngFor="let list of topic.nodes; let i = index"
+        <WrapLayout *ngFor="let list of topic.nodes; let i = index">
+           <Label
+            *ngIf="list.type == 'p'"
             class="list-item" 
             text="{{list.value}}"
             textWrap="true"
             >
-        </Label>
+            </Label>
+               <HtmlView
+                 *ngIf="list.type == 'html'"
+                 [html]="list.value"
+                 class="list-item"
+               ></HtmlView>
+        </WrapLayout>
     </WrapLayout>
 </ScrollView>
 `,
