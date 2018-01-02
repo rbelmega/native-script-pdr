@@ -5,12 +5,14 @@ import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { HomeComponent } from './layouts/home/home.component';
 import { TopicComponent } from './layouts/topic/topic.component';
 import { FinesComponent } from './layouts/fines/fines.component';
+import { SingsComponent } from './layouts/sings/sings.component';
 
 
 const routes = [
   { path: '', component: HomeComponent },
   { path: 'topic/:id', component: TopicComponent },
   { path: 'fines', component: FinesComponent },
+  { path: 'sings', component: SingsComponent },
   { path: '**', redirectTo: '' },
 ];
 

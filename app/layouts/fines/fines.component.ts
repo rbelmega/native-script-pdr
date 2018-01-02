@@ -52,8 +52,7 @@ import {DataService} from '../../services/data.service';
 <ScrollView orientation="vertical" class="panel">
     <WrapLayout >
         <WrapLayout *ngFor="let fine of fines; let i = index" class="list-item">
-        
-           <Label
+            <Label
             class="fine-desc" 
             text="{{fine.text}}"
             textWrap="true"

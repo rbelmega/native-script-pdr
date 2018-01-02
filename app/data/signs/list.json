@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1",
+    "desc": "Попереджувальні знаки",
+    "img": "img/sign/1/main.jpg"
+  },
+  {
+    "id": "2",
+    "desc": "Знаки пріоритету",
+    "img": "img/sign/2/main.gif"
+  },
+  {
+    "id": "3",
+    "desc": "Заборонні знаки",
+    "img": "img/sign/3/main.gif"
+  },
+  {
+    "id": "4",
+    "desc": "Наказові знаки",
+    "img": "img/sign/4/main.gif"
+  },
+  {
+    "id": "5",
+    "desc": "Інформаційно-вказівні знаки",
+    "img": "img/sign/5/main.gif"
+  },
+  {
+    "id": "6",
+    "desc": "Знаки сервісу",
+    "img": "img/sign/6/main.gif"
+  },
+  {
+    "id": "7",
+    "desc": "Таблички до дорожніх знаків",
+    "img": "img/sign/7/main.gif"
+  }
+]

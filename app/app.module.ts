@@ -8,6 +8,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {HomeComponent} from './layouts/home/home.component';
 import { TopicComponent } from './layouts/topic/topic.component';
 import { FinesComponent } from './layouts/fines/fines.component';
+import { SingsComponent } from './layouts/sings/sings.component';
 
 
 import {DataService} from './services/data.service';
@@ -18,6 +19,7 @@ import {DataService} from './services/data.service';
         HomeComponent,
         TopicComponent,
         FinesComponent,
+        SingsComponent,
     ],
     bootstrap: [AppComponent],
     imports: [
