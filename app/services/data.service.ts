@@ -15,6 +15,11 @@ export class DataService {
         return Observable.of(data);
     }
 
+    getFines() {
+        const data = require('../data/fines/fines.json');
+        return Observable.of(data);
+    }
+
     getTopicById(id) {
         const data = require(`../data/topics/${id}.json`);
         console.log(data);

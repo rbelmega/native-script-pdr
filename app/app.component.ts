@@ -17,7 +17,7 @@ import {RouterExtensions} from "nativescript-angular/router";
         [nsRouterLink]="['/']" 
     ></Button>
     <Button text="sings" row="0" col="1"></Button>
-    <Button text="fines" row="0" col="2"></Button>
+    <Button  [nsRouterLink]="['/fines']" text="fines" row="0" col="2"></Button>
     <Button text="search" row="0" col="3"></Button>
 </GridLayout>
     <router-outlet  dock="top"></router-outlet>

@@ -7,6 +7,7 @@ import {AppComponent} from "./app.component";
 import {AppRoutingModule} from './app-routing.module';
 import {HomeComponent} from './layouts/home/home.component';
 import { TopicComponent } from './layouts/topic/topic.component';
+import { FinesComponent } from './layouts/fines/fines.component';
 
 
 import {DataService} from './services/data.service';
@@ -15,7 +16,8 @@ import {DataService} from './services/data.service';
     declarations: [
         AppComponent,
         HomeComponent,
-        TopicComponent
+        TopicComponent,
+        FinesComponent,
     ],
     bootstrap: [AppComponent],
     imports: [
