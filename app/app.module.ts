@@ -9,6 +9,7 @@ import {HomeComponent} from './layouts/home/home.component';
 import { TopicComponent } from './layouts/topic/topic.component';
 import { FinesComponent } from './layouts/fines/fines.component';
 import { SingsComponent } from './layouts/sings/sings.component';
+import { SignComponent } from './layouts/sign/sign.component';
 
 
 import {DataService} from './services/data.service';
@@ -20,13 +21,14 @@ import {DataService} from './services/data.service';
         TopicComponent,
         FinesComponent,
         SingsComponent,
+        SignComponent,
     ],
     bootstrap: [AppComponent],
     imports: [
         HttpModule,
         HttpClientModule,
         AppRoutingModule,
-        NativeScriptModule
+        NativeScriptModule,
     ],
     providers: [
         DataService,

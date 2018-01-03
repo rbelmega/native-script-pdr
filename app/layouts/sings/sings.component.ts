@@ -34,14 +34,19 @@ import {DataService} from '../../services/data.service';
   template: `
 <ScrollView orientation="vertical">
     <WrapLayout class="list-group">
-      <Label 
+      <WrapLayout 
         *ngFor="let list of lists; let i = index"
         class="list-group-item" 
-        text="{{i+1}}. {{list.name}}"
         textWrap="true"
-        [nsRouterLink]="['/topic', list.id]" 
+        [nsRouterLink]="['/signs', list.id]" 
         >
-    </Label>
+        <Image src=" {{ list.img }}" ></Image>
+        <Label 
+        text="{{list.desc}}"
+        textWrap="true"
+        ></Label>
+             
+    </WrapLayout>
     </WrapLayout>
 </ScrollView>
 `,
@@ -54,13 +59,13 @@ export class SingsComponent implements OnInit {
 
   ngOnInit() {
       this.lists = [
-          {id: '1', desc: 'Попереджувальні знаки', img: 'img/sign/1/main.jpg'},
-          {id: '2', desc: 'Знаки пріоритету', img: 'img/sign/2/main.gif'},
-          {id: '3', desc: 'Заборонні знаки', img: 'img/sign/3/main.gif'},
-          {id: '4', desc: 'Наказові знаки', img: 'img/sign/4/main.gif'},
-          {id: '5', desc: 'Інформаційно-вказівні знаки', img: 'img/sign/5/main.gif'},
-          {id: '6', desc: 'Знаки сервісу', img: 'img/sign/6/main.gif'},
-          {id: '7', desc: 'Таблички до дорожніх знаків', img: 'img/sign/7/main.gif'}
+          {id: '1', desc: 'Попереджувальні знаки', img: '~/images/sign/1/main.jpg'},
+          {id: '2', desc: 'Знаки пріоритету', img: '~/images/sign/2/main.gif'},
+          {id: '3', desc: 'Заборонні знаки', img: '~/images/sign/3/main.gif'},
+          {id: '4', desc: 'Наказові знаки', img: '~/images/sign/4/main.gif'},
+          {id: '5', desc: 'Інформаційно-вказівні знаки', img: '~/images/sign/5/main.gif'},
+          {id: '6', desc: 'Знаки сервісу', img: '~/images/sign/6/main.gif'},
+          {id: '7', desc: 'Таблички до дорожніх знаків', img: '~/images/sign/7/main.gif'}
       ];
   }
 }
