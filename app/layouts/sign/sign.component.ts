@@ -36,17 +36,16 @@ import {DataService} from '../../services/data.service';
   template: `
 <ScrollView orientation="vertical" class="panel">
     <WrapLayout >
-        <WrapLayout *ngFor="let list of topic.nodes; let i = index">
+        <WrapLayout *ngFor="let list of topic; let i = index">
            <Label
-            *ngIf="list.type == 'p'"
+            *ngIf="list.type == 'html'"
             class="list-item" 
-            text="{{list.value}}"
+            text="{{list.desc}}"
             textWrap="true"
             >
             </Label>
                <HtmlView
-                 *ngIf="list.type == 'html'"
-                 [html]="list.value"
+                 [html]="list.desc"
                  class="list-item"
                ></HtmlView>
         </WrapLayout>
@@ -66,7 +65,7 @@ export class SignComponent implements OnInit {
   ngOnInit() {
       this.activatedRoute.params
           .forEach((params) => {
-              this.dataService.getTopicById(params.id).subscribe(data => {
+              this.dataService.getSignById(params.id).subscribe(data => {
                   this.topic = data;
               }, err => {
                   console.log(JSON.stringify(err));

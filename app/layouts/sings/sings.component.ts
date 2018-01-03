@@ -30,6 +30,11 @@ import {DataService} from '../../services/data.service';
 	margin-bottom: 1px;
 	box-shadow: none;
 }
+.sign-image {
+    display: inline-block;
+    width: 50px;
+    margin-right: 30px;
+}
   `],
   template: `
 <ScrollView orientation="vertical">
@@ -40,7 +45,7 @@ import {DataService} from '../../services/data.service';
         textWrap="true"
         [nsRouterLink]="['/signs', list.id]" 
         >
-        <Image src=" {{ list.img }}" ></Image>
+        <Image src=" {{ list.img }}" class="sign-image"></Image>
         <Label 
         text="{{list.desc}}"
         textWrap="true"

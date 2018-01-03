@@ -25,4 +25,9 @@ export class DataService {
         console.log(data);
         return Observable.of(data);
     }
+
+    getSignById(id) {
+        const data = require(`../data/signs/${id}.json`);
+        return Observable.of(data);
+    }
 }
