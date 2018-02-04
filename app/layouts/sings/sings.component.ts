@@ -64,13 +64,13 @@ export class SingsComponent implements OnInit {
 
   ngOnInit() {
       this.lists = [
-          {id: '1', desc: 'Попереджувальні знаки', img: '~/images/sign/1/main.jpg'},
-          {id: '2', desc: 'Знаки пріоритету', img: '~/images/sign/2/main.gif'},
-          {id: '3', desc: 'Заборонні знаки', img: '~/images/sign/3/main.gif'},
-          {id: '4', desc: 'Наказові знаки', img: '~/images/sign/4/main.gif'},
-          {id: '5', desc: 'Інформаційно-вказівні знаки', img: '~/images/sign/5/main.gif'},
-          {id: '6', desc: 'Знаки сервісу', img: '~/images/sign/6/main.gif'},
-          {id: '7', desc: 'Таблички до дорожніх знаків', img: '~/images/sign/7/main.gif'}
+          {id: '1', desc: 'Попереджувальні знаки', img: '~/assets/images/sign/1/main.jpg'},
+          {id: '2', desc: 'Знаки пріоритету', img: '~/assets/images/sign/2/main.gif'},
+          {id: '3', desc: 'Заборонні знаки', img: '~/assets/images/sign/3/main.gif'},
+          {id: '4', desc: 'Наказові знаки', img: '~/assets/images/sign/4/main.gif'},
+          {id: '5', desc: 'Інформаційно-вказівні знаки', img: '~/assets/images/sign/5/main.gif'},
+          {id: '6', desc: 'Знаки сервісу', img: '~/assets/images/sign/6/main.gif'},
+          {id: '7', desc: 'Таблички до дорожніх знаків', img: '~/assets/images/sign/7/main.gif'}
       ];
   }
 }

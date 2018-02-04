@@ -3,10 +3,10 @@ import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 
 import { HomeComponent } from './layouts/home/home.component';
-import { TopicComponent } from './layouts/topic/topic.component';
+import { TopicComponent } from './components/topic/topic.component';
 import { FinesComponent } from './layouts/fines/fines.component';
 import { SingsComponent } from './layouts/sings/sings.component';
-import { SignComponent } from './layouts/sign/sign.component';
+import { SignComponent } from './components/sign/sign.component';
 
 
 const routes = [

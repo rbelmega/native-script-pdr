@@ -42,20 +42,12 @@ import {DataService} from '../../services/data.service';
 <ScrollView orientation="vertical" class="panel">
     <WrapLayout >
         <WrapLayout *ngFor="let list of topic; let i = index">
-           <Label
-            *ngIf="list.type == 'html'"
-            class="list-item" 
-            text="{{list.desc}}"
-            textWrap="true"
-            >
-            </Label>
-               <HtmlView
-                 [html]="list.desc"
-                 class="list-item"
-               ></HtmlView>
+            <WrapLayout class="list-item">
                <WrapLayout *ngFor="let hh of list.images">
-                   <Image class="sign-image" src="{{ '~/images/sign/' + signCategory + '/' + hh.src }}" class="sign-image"></Image>
+                   <Image class="sign-image" src="{{ '~/assets/images/sign/' + signCategory + '/' + hh.src }}" class="sign-image"></Image>
                    <Label text="{{ hh.desc }}"></Label>
+               </WrapLayout>
+               <HtmlView [html]="list.desc"></HtmlView>
                </WrapLayout>
         </WrapLayout>
     </WrapLayout>

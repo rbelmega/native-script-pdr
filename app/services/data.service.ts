@@ -10,24 +10,24 @@ export class DataService {
     }
 
     getList() {
-        const data = require('../data/topics/list.json');
+        const data = require('../assets/data/topics/list.json');
 
         return Observable.of(data);
     }
 
     getFines() {
-        const data = require('../data/fines/fines.json');
+        const data = require('../assets/data/fines/fines.json');
         return Observable.of(data);
     }
 
     getTopicById(id) {
-        const data = require(`../data/topics/${id}.json`);
+        const data = require(`../assets/data/topics/${id}.json`);
         console.log(data);
         return Observable.of(data);
     }
 
     getSignById(id) {
-        const data = require(`../data/signs/${id}.json`);
+        const data = require(`../assets/data/signs/${id}.json`);
         return Observable.of(data);
     }
 }

@@ -6,10 +6,10 @@ import { HttpClientModule } from '@angular/common/http';
 import {AppComponent} from "./app.component";
 import {AppRoutingModule} from './app-routing.module';
 import {HomeComponent} from './layouts/home/home.component';
-import { TopicComponent } from './layouts/topic/topic.component';
+import { TopicComponent } from './components/topic/topic.component';
 import { FinesComponent } from './layouts/fines/fines.component';
 import { SingsComponent } from './layouts/sings/sings.component';
-import { SignComponent } from './layouts/sign/sign.component';
+import { SignComponent } from './components/sign/sign.component';
 
 
 import {DataService} from './services/data.service';
