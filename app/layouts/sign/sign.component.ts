@@ -32,6 +32,11 @@ import {DataService} from '../../services/data.service';
 	box-shadow: 0 4px 4px #e2e2e2;
 	width: 100%;
 }
+.sign-image {
+    display: inline-block;
+    width: 50px;
+    margin-right: 30px;
+}
   `],
   template: `
 <ScrollView orientation="vertical" class="panel">
@@ -48,6 +53,10 @@ import {DataService} from '../../services/data.service';
                  [html]="list.desc"
                  class="list-item"
                ></HtmlView>
+               <WrapLayout *ngFor="let hh of list.images">
+                   <Image class="sign-image" src="{{ '~/images/sign/1/' + hh.src }}" class="sign-image"></Image>
+                   <Label text="{{ hh.desc }}"></Label>
+               </WrapLayout>
         </WrapLayout>
     </WrapLayout>
 </ScrollView>
