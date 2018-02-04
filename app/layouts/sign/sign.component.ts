@@ -54,7 +54,7 @@ import {DataService} from '../../services/data.service';
                  class="list-item"
                ></HtmlView>
                <WrapLayout *ngFor="let hh of list.images">
-                   <Image class="sign-image" src="{{ '~/images/sign/1/' + hh.src }}" class="sign-image"></Image>
+                   <Image class="sign-image" src="{{ '~/images/sign/' + signCategory + '/' + hh.src }}" class="sign-image"></Image>
                    <Label text="{{ hh.desc }}"></Label>
                </WrapLayout>
         </WrapLayout>
@@ -65,6 +65,7 @@ import {DataService} from '../../services/data.service';
 export class SignComponent implements OnInit {
   public sub: any;
   public topic: any;
+  public signCategory: any;
 
   constructor(
       private dataService: DataService,
@@ -74,6 +75,7 @@ export class SignComponent implements OnInit {
   ngOnInit() {
       this.activatedRoute.params
           .forEach((params) => {
+              this.signCategory = params.id;
               this.dataService.getSignById(params.id).subscribe(data => {
                   this.topic = data;
               }, err => {
