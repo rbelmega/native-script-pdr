@@ -1,15 +1,16 @@
 import {NgModule, NO_ERRORS_SCHEMA} from "@angular/core";
 import {NativeScriptModule} from "nativescript-angular/nativescript.module";
-import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+import {HttpModule} from '@angular/http';
+import {HttpClientModule} from '@angular/common/http';
 
 import {AppComponent} from "./app.component";
 import {AppRoutingModule} from './app-routing.module';
 import {HomeComponent} from './layouts/home/home.component';
-import { TopicComponent } from './components/topic/topic.component';
-import { FinesComponent } from './layouts/fines/fines.component';
-import { SingsComponent } from './layouts/sings/sings.component';
-import { SignComponent } from './components/sign/sign.component';
+import {TopicComponent} from './components/topic/topic.component';
+import {FinesComponent} from './layouts/fines/fines.component';
+import {SingsComponent} from './layouts/sings/sings.component';
+import {SignComponent} from './components/sign/sign.component';
+import {SearchComponent} from './layouts/search/search.component';
 
 
 import {DataService} from './services/data.service';
@@ -22,6 +23,7 @@ import {DataService} from './services/data.service';
         FinesComponent,
         SingsComponent,
         SignComponent,
+        SearchComponent,
     ],
     bootstrap: [AppComponent],
     imports: [

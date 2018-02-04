@@ -1,24 +1,19 @@
-import { Component } from "@angular/core";
+import {Component} from "@angular/core";
 import {RouterExtensions} from "nativescript-angular/router";
 
 @Component({
-  selector: "my-app",
-  template: `
+    selector: "my-app",
+    template: `
 <ActionBar title="Правила дорожнього руху">
     <ActionItem ios.systemIcon="21" ios.position="left" (tap)="onNavBtnTap()"></ActionItem>
   <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" (tap)="onNavBtnTap()"></NavigationButton>
 </ActionBar>
     <DockLayout stretchLastChild="true">
   <GridLayout dock="bottom" height="60" columns="*, *, *, *" rows="*">
-    <Button 
-        text="Main"
-        row="0"
-        col="0"
-        [nsRouterLink]="['/']" 
-    ></Button>
+    <Button [nsRouterLink]="['/']" text="main" row="0"  col="0"></Button>
     <Button [nsRouterLink]="['/signs']" text="sings" row="0" col="1"></Button>
     <Button [nsRouterLink]="['/fines']" text="fines" row="0" col="2"></Button>
-    <Button text="search" row="0" col="3"></Button>
+    <Button [nsRouterLink]="['/search']" text="search" row="0" col="3"></Button>
 </GridLayout>
     <router-outlet  dock="top"></router-outlet>
 
@@ -27,11 +22,13 @@ import {RouterExtensions} from "nativescript-angular/router";
 })
 export class AppComponent {
 
-  constructor(private routerExtensions: RouterExtensions){}
+    constructor(private routerExtensions: RouterExtensions) {
+    }
 
     public onNavBtnTap() {
         this.routerExtensions.back();
     }
+
     public goToHome() {
         this.routerExtensions.back();
     }

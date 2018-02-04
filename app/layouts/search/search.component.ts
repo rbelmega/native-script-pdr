@@ -56,7 +56,7 @@ import {DataService} from '../../services/data.service';
 </ScrollView>
 `,
 })
-export class SingsComponent implements OnInit {
+export class SearchComponent implements OnInit {
     public lists: any = [];
 
     constructor(private dataService: DataService) {

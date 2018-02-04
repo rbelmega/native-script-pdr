@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 import "rxjs/add/operator/switchMap";
 
 import {DataService} from '../../services/data.service';
 
 @Component({
-  selector: 'pdr-topic',
-  styles: [`
+    selector: 'pdr-topic',
+    styles: [`
 .panel {
 	background-color: #f2f2f2;
 	color: rgb(66, 94, 106);
@@ -33,7 +33,7 @@ import {DataService} from '../../services/data.service';
 	width: 100%;
 }
   `],
-  template: `
+    template: `
 <ScrollView orientation="vertical" class="panel">
     <WrapLayout >
         <WrapLayout *ngFor="let list of topic.nodes; let i = index">
@@ -55,22 +55,21 @@ import {DataService} from '../../services/data.service';
 `,
 })
 export class TopicComponent implements OnInit {
-  public sub: any;
-  public topic: any;
+    public sub: any;
+    public topic: any;
 
-  constructor(
-      private dataService: DataService,
-      private activatedRoute: ActivatedRoute
-  ) {}
+    constructor(private dataService: DataService,
+                private activatedRoute: ActivatedRoute) {
+    }
 
-  ngOnInit() {
-      this.activatedRoute.params
-          .forEach((params) => {
-              this.dataService.getTopicById(params.id).subscribe(data => {
-                  this.topic = data;
-              }, err => {
-                  console.log(JSON.stringify(err));
-              })
-          });
-  }
+    ngOnInit() {
+        this.activatedRoute.params
+            .forEach((params) => {
+                this.dataService.getTopicById(params.id).subscribe(data => {
+                    this.topic = data;
+                }, err => {
+                    console.log(JSON.stringify(err));
+                })
+            });
+    }
 }
