@@ -38,21 +38,14 @@ import {DataService} from '../../services/data.service';
   `],
     template: `
 <ScrollView orientation="vertical">
-    <WrapLayout class="list-group">
-      <WrapLayout 
-        *ngFor="let list of lists; let i = index"
-        class="list-group-item" 
-        textWrap="true"
-        [nsRouterLink]="['/signs', list.id]" 
-        >
-        <Image src=" {{ list.img }}" class="sign-image"></Image>
-        <Label 
-        text="{{list.desc}}"
-        textWrap="true"
-        ></Label>
-             
-    </WrapLayout>
-    </WrapLayout>
+  <TextField
+  #secondTx
+  keyboardType="search"
+  hint="Enter some text and click the button"
+  autocorrect="false"
+  returnKeyType="search"
+  (returnPress)="submit(secondTx.text)"
+  class="input input-border"></TextField>
 </ScrollView>
 `,
 })
@@ -63,14 +56,9 @@ export class SearchComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.lists = [
-            {id: '1', desc: 'Попереджувальні знаки', img: '~/assets/images/sign/1/main.jpg'},
-            {id: '2', desc: 'Знаки пріоритету', img: '~/assets/images/sign/2/main.gif'},
-            {id: '3', desc: 'Заборонні знаки', img: '~/assets/images/sign/3/main.gif'},
-            {id: '4', desc: 'Наказові знаки', img: '~/assets/images/sign/4/main.gif'},
-            {id: '5', desc: 'Інформаційно-вказівні знаки', img: '~/assets/images/sign/5/main.gif'},
-            {id: '6', desc: 'Знаки сервісу', img: '~/assets/images/sign/6/main.gif'},
-            {id: '7', desc: 'Таблички до дорожніх знаків', img: '~/assets/images/sign/7/main.gif'}
-        ];
+
+    }
+    public submit(result) {
+        alert("Text: " + result);
     }
 }
