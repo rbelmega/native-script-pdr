@@ -40,7 +40,7 @@ import {DataService} from '../../services/data.service';
 <ScrollView orientation="vertical">
   <TextField
   #secondTx
-  keyboardType="search"
+  keyboardType="number"
   hint="Enter some text and click the button"
   autocorrect="false"
   returnKeyType="search"
@@ -58,7 +58,7 @@ export class SearchComponent implements OnInit {
     ngOnInit() {
 
     }
-    public submit(result) {
-        alert("Text: " + result);
+    public submit(searchText) {
+        this.dataService.search(searchText)
     }
 }

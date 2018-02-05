@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
+import 'rxjs/add/observable/forkJoin';
 
 @Injectable()
 export class DataService {
@@ -22,12 +23,33 @@ export class DataService {
 
     getTopicById(id) {
         const data = require(`../assets/data/topics/${id}.json`);
-        console.log(data);
         return Observable.of(data);
     }
 
     getSignById(id) {
         const data = require(`../assets/data/signs/${id}.json`);
         return Observable.of(data);
+    }
+
+    search(searchText) {
+        var search = [];
+        const requests = Array.from(Array(34).keys()).map((i) => this.getTopicById(i + 1));
+        Observable.forkJoin(requests).subscribe((data: any) => {
+            data.forEach((item, index) => {
+                var searched = item.nodes.filter((node) => {
+                    return ~node.value.indexOf(searchText);
+                });
+
+                if (searched.length) {
+                    search.push({
+                        index,
+                        searched
+                    })
+                }
+            });
+
+            console.log(data.nodes[0].value)
+        });
+        // searchText
     }
 }
