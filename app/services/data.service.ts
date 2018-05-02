@@ -3,11 +3,14 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/forkJoin';
+import {Subject} from "rxjs/Subject";
 
 @Injectable()
 export class DataService {
+    public  result: any;
 
     constructor(private http: HttpClient) {
+        this.result = new Subject();
     }
 
     getList() {
@@ -32,11 +35,12 @@ export class DataService {
     }
 
     search(searchText) {
-        var search = [];
+        const search = [];
         const requests = Array.from(Array(34).keys()).map((i) => this.getTopicById(i + 1));
+
         Observable.forkJoin(requests).subscribe((data: any) => {
             data.forEach((item, index) => {
-                var searched = item.nodes.filter((node) => {
+                const searched = (item.nodes || []).filter((node) => {
                     return ~node.value.indexOf(searchText);
                 });
 
@@ -47,9 +51,12 @@ export class DataService {
                     })
                 }
             });
-
-            console.log(data.nodes[0].value)
         });
-        // searchText
+
+        setTimeout(() => {
+            this.result.next(search);
+        }, 1400);
+
+        return this.result.asObservable();
     }
 }

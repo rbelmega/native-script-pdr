@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from '../../services/data.service';
+import 'rxjs/add/observable/forkJoin';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
     selector: 'pdr-sings',
@@ -38,19 +40,46 @@ import {DataService} from '../../services/data.service';
   `],
     template: `
 <ScrollView orientation="vertical">
-  <TextField
-  #secondTx
-  keyboardType="number"
-  hint="Enter some text and click the button"
-  autocorrect="false"
-  returnKeyType="search"
-  (returnPress)="submit(secondTx.text)"
-  class="input input-border"></TextField>
+  <WrapLayout>
+      <TextField
+          #secondTx
+          keyboardType="number"
+          hint="Enter some text and click the button"
+          autocorrect="false"
+          returnKeyType="search"
+          (returnPress)="submit(secondTx.text)"
+          class="input input-border">
+      </TextField>
+      <WrapLayout *ngFor="let data of searchData" class="list-group">
+        <Label
+            class="list-group-item" 
+            text="{{lists[data.index].name}}"
+            textWrap="true"
+            >
+                        </Label> 
+      <WrapLayout *ngFor="let topic of data.searched" class="list-item">
+          <Label
+            *ngIf="topic.type == 'p'"
+            class="list-item" 
+            text="{{topic.value}}"
+            textWrap="true"
+            >
+            </Label>
+               <HtmlView
+                 *ngIf="topic.type == 'html'"
+                 [html]="topic.value"
+                 class="list-item"
+               ></HtmlView>
+        </WrapLayout>
+        </WrapLayout>
+        </WrapLayout>
 </ScrollView>
 `,
 })
 export class SearchComponent implements OnInit {
     public lists: any = [];
+    public searchData: any = [];
+
 
     constructor(private dataService: DataService) {
     }
@@ -58,7 +87,20 @@ export class SearchComponent implements OnInit {
     ngOnInit() {
 
     }
+
     public submit(searchText) {
-        this.dataService.search(searchText)
+        this.dataService.getList().subscribe(list => {
+            this.dataService.search(searchText).subscribe(data => {
+                console.log(data);
+                this.lists = list;
+                this.searchData = data;
+            })
+        })
+
+        //     Observable.forkJoin([
+        //     this.dataService.search(searchText)
+        // ]).subscribe(([list, data]) => {
+        //
+        // });
     }
 }
