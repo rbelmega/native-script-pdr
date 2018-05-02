@@ -1,12 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import "rxjs/add/operator/switchMap";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import 'rxjs/add/operator/switchMap';
 
-import {DataService} from '../../services/data.service';
+import { DataService } from '../../services/data.service';
 
 @Component({
-    selector: 'pdr-fines',
-    styles: [`
+  selector: 'pdr-fines',
+  styles: [
+    `
 .panel {
 	background-color: #f2f2f2;
 	color: rgb(66, 94, 106);
@@ -47,8 +48,9 @@ import {DataService} from '../../services/data.service';
 	display: block;
 	margin-bottom: 6px;
 }
-  `],
-    template: `
+  `,
+  ],
+  template: `
 <ScrollView orientation="vertical" class="panel">
     <WrapLayout >
         <WrapLayout *ngFor="let fine of fines; let i = index" class="list-item">
@@ -70,21 +72,24 @@ import {DataService} from '../../services/data.service';
 `,
 })
 export class FinesComponent implements OnInit {
-    public sub: any;
-    public fines: any;
+  public sub: any;
+  public fines: any;
 
-    constructor(private dataService: DataService,
-                private activatedRoute: ActivatedRoute) {
-    }
+  constructor(
+    private dataService: DataService,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
-    ngOnInit() {
-        this.activatedRoute.params
-            .forEach((params) => {
-                this.dataService.getFines().subscribe(data => {
-                    this.fines = data;
-                }, err => {
-                    console.log(JSON.stringify(err));
-                })
-            });
-    }
+  ngOnInit() {
+    this.activatedRoute.params.forEach(params => {
+      this.dataService.getFines().subscribe(
+        data => {
+          this.fines = data;
+        },
+        err => {
+          console.log(JSON.stringify(err));
+        }
+      );
+    });
+  }
 }

@@ -1,11 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {DataService} from '../../services/data.service';
+import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../services/data.service';
 import 'rxjs/add/observable/forkJoin';
-import {Observable} from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
-    selector: 'pdr-sings',
-    styles: [`
+  selector: 'pdr-sings',
+  styles: [
+    `
 .list-group {
 	background: #fff;
 }
@@ -37,8 +38,9 @@ import {Observable} from 'rxjs/Observable';
     width: 50px;
     margin-right: 30px;
 }
-  `],
-    template: `
+  `,
+  ],
+  template: `
 <ScrollView orientation="vertical">
   <WrapLayout>
       <TextField
@@ -77,30 +79,26 @@ import {Observable} from 'rxjs/Observable';
 `,
 })
 export class SearchComponent implements OnInit {
-    public lists: any = [];
-    public searchData: any = [];
+  public lists: any = [];
+  public searchData: any = [];
 
+  constructor(private dataService: DataService) {}
 
-    constructor(private dataService: DataService) {
-    }
+  ngOnInit() {}
 
-    ngOnInit() {
+  public submit(searchText) {
+    this.dataService.getList().subscribe(list => {
+      this.dataService.search(searchText).subscribe(data => {
+        console.log(data);
+        this.lists = list;
+        this.searchData = data;
+      });
+    });
 
-    }
-
-    public submit(searchText) {
-        this.dataService.getList().subscribe(list => {
-            this.dataService.search(searchText).subscribe(data => {
-                console.log(data);
-                this.lists = list;
-                this.searchData = data;
-            })
-        })
-
-        //     Observable.forkJoin([
-        //     this.dataService.search(searchText)
-        // ]).subscribe(([list, data]) => {
-        //
-        // });
-    }
+    //     Observable.forkJoin([
+    //     this.dataService.search(searchText)
+    // ]).subscribe(([list, data]) => {
+    //
+    // });
+  }
 }

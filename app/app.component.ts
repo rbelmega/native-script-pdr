@@ -1,9 +1,9 @@
-import {Component} from "@angular/core";
-import {RouterExtensions} from "nativescript-angular/router";
+import { Component } from '@angular/core';
+import { RouterExtensions } from 'nativescript-angular/router';
 
 @Component({
-    selector: "my-app",
-    template: `
+  selector: 'my-app',
+  template: `
 <ActionBar title="Правила дорожнього руху">
     <ActionItem ios.systemIcon="21" ios.position="left" (tap)="onNavBtnTap()"></ActionItem>
   <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" (tap)="onNavBtnTap()"></NavigationButton>
@@ -18,18 +18,16 @@ import {RouterExtensions} from "nativescript-angular/router";
     <router-outlet  dock="top"></router-outlet>
 
 </DockLayout>
-  `
+  `,
 })
 export class AppComponent {
+  constructor(private routerExtensions: RouterExtensions) {}
 
-    constructor(private routerExtensions: RouterExtensions) {
-    }
+  public onNavBtnTap() {
+    this.routerExtensions.back();
+  }
 
-    public onNavBtnTap() {
-        this.routerExtensions.back();
-    }
-
-    public goToHome() {
-        this.routerExtensions.back();
-    }
+  public goToHome() {
+    this.routerExtensions.back();
+  }
 }

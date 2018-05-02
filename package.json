@@ -31,6 +31,6 @@
 		"typescript": "~2.4.2"
 	},
 	"scripts": {
-		"prettier": "prettier --single-quote --trailing-comma es5 --write \"./{src,e2e}/**/*.{ts,scss,css}\""
+		"prettier": "prettier --single-quote --trailing-comma es5 --write \"./{app,e2e}/**/*.{ts,scss,css}\""
 	}
 }

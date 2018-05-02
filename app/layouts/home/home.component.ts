@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {DataService} from '../../services/data.service';
+import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../services/data.service';
 
 @Component({
-    selector: 'pdr-home',
-    styles: [`
+  selector: 'pdr-home',
+  styles: [
+    `
 .list-group {
 	background: #fff;
 }
@@ -30,8 +31,9 @@ import {DataService} from '../../services/data.service';
 	margin-bottom: 1px;
 	box-shadow: none;
 }
-  `],
-    template: `
+  `,
+  ],
+  template: `
 <ScrollView orientation="vertical">
     <WrapLayout class="list-group">
       <Label 
@@ -47,14 +49,13 @@ import {DataService} from '../../services/data.service';
 `,
 })
 export class HomeComponent implements OnInit {
-    public lists: any = [];
+  public lists: any = [];
 
-    constructor(private dataService: DataService) {
-    }
+  constructor(private dataService: DataService) {}
 
-    ngOnInit() {
-        this.dataService.getList().subscribe(data => {
-            this.lists = data;
-        })
-    }
+  ngOnInit() {
+    this.dataService.getList().subscribe(data => {
+      this.lists = data;
+    });
+  }
 }
