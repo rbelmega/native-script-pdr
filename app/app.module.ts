@@ -14,6 +14,8 @@ import { SearchComponent } from './layouts/search/search.component';
 
 import { DataService } from './services/data.service';
 
+import { SearchPipe } from './pipes/search.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +25,7 @@ import { DataService } from './services/data.service';
     SingsComponent,
     SignComponent,
     SearchComponent,
+    SearchPipe,
   ],
   bootstrap: [AppComponent],
   imports: [HttpModule, HttpClientModule, AppRoutingModule, NativeScriptModule],

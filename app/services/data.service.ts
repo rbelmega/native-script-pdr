@@ -43,7 +43,7 @@ export class DataService {
     Observable.forkJoin(requests).subscribe((data: any) => {
       data.forEach((item, index) => {
         const searched = (item.nodes || []).filter(node => {
-          return ~node.value.indexOf(searchText);
+          return ~node.value.toLowerCase().indexOf(searchText.toLowerCase());
         });
 
         if (searched.length) {

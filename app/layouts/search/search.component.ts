@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import 'rxjs/add/observable/forkJoin';
 import { Observable } from 'rxjs/Observable';
+import { SearchBar } from 'ui/search-bar';
 
 @Component({
   selector: 'pdr-sings',
@@ -43,42 +44,37 @@ import { Observable } from 'rxjs/Observable';
   template: `
 <ScrollView orientation="vertical">
   <WrapLayout>
-      <TextField
-          #secondTx
-          keyboardType="number"
-          hint="Enter some text and click the button"
-          autocorrect="false"
-          returnKeyType="search"
-          (returnPress)="submit(secondTx.text)"
-          class="input input-border">
-      </TextField>
-      <WrapLayout *ngFor="let data of searchData" class="list-group">
+    <SearchBar
+        hint="Search hint"
+        (submit)="onSubmit($event)" 
+        color="black"
+        textFieldHintColor="white">
+    </SearchBar>
+    <WrapLayout *ngFor="let data of searchData" class="list-group">
         <Label
             class="list-group-item" 
             text="{{lists[data.index].name}}"
-            textWrap="true"
-            >
-                        </Label> 
-      <WrapLayout *ngFor="let topic of data.searched" class="list-item">
-          <Label
-            *ngIf="topic.type == 'p'"
-            class="list-item" 
-            text="{{topic.value}}"
-            textWrap="true"
-            >
-            </Label>
-               <HtmlView
-                 *ngIf="topic.type == 'html'"
-                 [html]="topic.value"
-                 class="list-item"
-               ></HtmlView>
+            textWrap="true">
+        </Label> 
+        <WrapLayout *ngFor="let topic of data.searched" class="list-item">
+            <!--<Label-->
+                <!--*ngIf="topic.type == 'p'"-->
+                <!--class="list-item" -->
+                <!--text="{{topic.value | searcher : searchText}}"-->
+                <!--textWrap="true">-->
+            <!--</Label>-->
+            <HtmlView
+                 [html]="topic.value | searcher : searchText"
+                 class="list-item">
+            </HtmlView>
         </WrapLayout>
-        </WrapLayout>
-        </WrapLayout>
+    </WrapLayout>
+  </WrapLayout>
 </ScrollView>
 `,
 })
 export class SearchComponent implements OnInit {
+  public searchText: any;
   public lists: any = [];
   public searchData: any = [];
 
@@ -86,19 +82,16 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {}
 
-  public submit(searchText) {
+  public onSubmit(args) {
+    let searchBar = <SearchBar>args.object;
+    this.searchText = searchBar.text.toLowerCase();
+
     this.dataService.getList().subscribe(list => {
-      this.dataService.search(searchText).subscribe(data => {
-        console.log(data);
+      this.dataService.search(this.searchText).subscribe(data => {
+        console.log('data', data);
         this.lists = list;
         this.searchData = data;
       });
     });
-
-    //     Observable.forkJoin([
-    //     this.dataService.search(searchText)
-    // ]).subscribe(([list, data]) => {
-    //
-    // });
   }
 }
