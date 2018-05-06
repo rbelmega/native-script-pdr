@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/forkJoin';
+import 'rxjs/add/operator/map';
 import { Subject } from 'rxjs/Subject';
 
 @Injectable()
@@ -34,31 +35,30 @@ export class DataService {
     return Observable.of(data);
   }
 
-  search(searchText) {
-    const search = [];
+  getAllData() {
     const requests = Array.from(Array(34).keys()).map(i =>
       this.getTopicById(i + 1)
     );
 
-    Observable.forkJoin(requests).subscribe((data: any) => {
-      data.forEach((item, index) => {
-        const searched = (item.nodes || []).filter(node => {
-          return ~node.value.toLowerCase().indexOf(searchText.toLowerCase());
-        });
+    return Observable.forkJoin(requests);
+  }
 
-        if (searched.length) {
-          search.push({
+  search({ searchText, data$ }) {
+    const search = searchText.toLowerCase();
+
+    return data$.map(data =>
+      data
+        .map((item, index) => {
+          const searched = (item.nodes || []).filter(node => {
+            return ~node.value.toLowerCase().indexOf(search);
+          });
+
+          return {
             index,
             searched,
-          });
-        }
-      });
-    });
-
-    setTimeout(() => {
-      this.result.next(search);
-    }, 1400);
-
-    return this.result.asObservable();
+          };
+        })
+        .filter(item => item.searched.length)
+    );
   }
 }

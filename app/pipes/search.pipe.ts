@@ -10,7 +10,7 @@ export class SearchPipe implements PipeTransform {
     const pos = text.search(search);
     return (
       '<span>' +
-      text.substring(pos - 100 || 0, pos) +
+      text.substring(pos - 40 || 0, pos) +
       '<b>' +
       search +
       '</b>' +

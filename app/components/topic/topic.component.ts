@@ -37,8 +37,8 @@ import { DataService } from '../../services/data.service';
   ],
   template: `
 <ScrollView orientation="vertical" class="panel">
-    <WrapLayout >
-        <WrapLayout *ngFor="let list of topic.nodes; let i = index">
+    <StackLayout>
+        <StackLayout *ngFor="let list of topic.nodes; let i = index">
            <Label
             *ngIf="list.type == 'p'"
             class="list-item" 
@@ -48,11 +48,11 @@ import { DataService } from '../../services/data.service';
             </Label>
                <HtmlView
                  *ngIf="list.type == 'html'"
-                 [html]="list.value"
+                 html="{{list.value}}"
                  class="list-item"
                ></HtmlView>
-        </WrapLayout>
-    </WrapLayout>
+        </StackLayout>
+    </StackLayout>
 </ScrollView>
 `,
 })

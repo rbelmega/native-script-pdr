@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../services/data.service';
-import 'rxjs/add/observable/forkJoin';
-import { Observable } from 'rxjs/Observable';
 import { SearchBar } from 'ui/search-bar';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'pdr-sings',
@@ -46,17 +44,17 @@ import { SearchBar } from 'ui/search-bar';
   <WrapLayout>
     <SearchBar
         hint="Search hint"
-        (submit)="onSubmit($event)" 
+        (textChange)="onTextChanged($event)" 
         color="black"
         textFieldHintColor="white">
     </SearchBar>
-    <WrapLayout *ngFor="let data of searchData" class="list-group">
+    <StackLayout *ngFor="let data of searchData" class="list-group"  [nsRouterLink]="['/topic', lists[data.index].id]" >
         <Label
             class="list-group-item" 
             text="{{lists[data.index].name}}"
             textWrap="true">
         </Label> 
-        <WrapLayout *ngFor="let topic of data.searched" class="list-item">
+        <StackLayout *ngFor="let topic of data.searched" class="list-item">
             <!--<Label-->
                 <!--*ngIf="topic.type == 'p'"-->
                 <!--class="list-item" -->
@@ -67,8 +65,8 @@ import { SearchBar } from 'ui/search-bar';
                  [html]="topic.value | searcher : searchText"
                  class="list-item">
             </HtmlView>
-        </WrapLayout>
-    </WrapLayout>
+        </StackLayout>
+    </StackLayout>
   </WrapLayout>
 </ScrollView>
 `,
@@ -77,21 +75,31 @@ export class SearchComponent implements OnInit {
   public searchText: any;
   public lists: any = [];
   public searchData: any = [];
+  public allData$: any;
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService) {
+    this.allData$ = this.dataService.getAllData();
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.dataService.getList().subscribe(list => {
+      this.lists = list;
+    });
+  }
 
-  public onSubmit(args) {
+  public onTextChanged(args) {
     let searchBar = <SearchBar>args.object;
     this.searchText = searchBar.text.toLowerCase();
 
-    this.dataService.getList().subscribe(list => {
-      this.dataService.search(this.searchText).subscribe(data => {
-        console.log('data', data);
-        this.lists = list;
+    if (!this.searchText) {
+      this.searchData = [];
+      return;
+    }
+
+    this.dataService
+      .search({ searchText: this.searchText, data$: this.allData$ })
+      .subscribe(data => {
         this.searchData = data;
       });
-    });
   }
 }
