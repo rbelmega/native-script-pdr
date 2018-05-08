@@ -11,7 +11,7 @@
       "value": [
         {
           "type": "list-item",
-          "value": "<ul>a) сигнали, що подаються світловими покажчиками повороту або рукою;"
+          "value": "a) сигнали, що подаються світловими покажчиками повороту або рукою;"
         },
         {
           "type": "list-item",
@@ -40,7 +40,7 @@
       "value": [
         {
           "type": "list-item",
-          "value": "<ul>a) перед початком руху і зупинкою;"
+          "value": "a) перед початком руху і зупинкою;"
         },
         {
           "type": "list-item",
@@ -73,7 +73,7 @@
       "value": [
         {
           "type": "list-item",
-          "value": "<ul> <li style=\"text-align: left;\">a) у колоні;"
+          "value": " <li style=\"text-align: left;\">a) у колоні;"
         },
         {
           "type": "list-item",
@@ -102,7 +102,7 @@
       "value": [
         {
           "type": "list-item",
-          "value": "<ul>a) у разі вимушеної зупинки на дорозі;"
+          "value": "a) у разі вимушеної зупинки на дорозі;"
         },
         {
           "type": "list-item",
@@ -135,7 +135,7 @@
       "value": [
         {
           "type": "list-item",
-          "value": "<ul>a) скоєння дорожньо-транспортної пригоди (ДТП);"
+          "value": "a) скоєння дорожньо-транспортної пригоди (ДТП);"
         },
         {
           "type": "list-item",
@@ -148,7 +148,7 @@
       "value": [
         {
           "type": "list-item",
-          "value": "<ul>a) ззаду на транспортному засобі, зазначеному в пункті 9.9 (&laquo;в&raquo;, &laquo;г&raquo;, &laquo;ґ&raquo;) цих Правил;"
+          "value": "a) ззаду на транспортному засобі, зазначеному в пункті 9.9 (&laquo;в&raquo;, &laquo;г&raquo;, &laquo;ґ&raquo;) цих Правил;"
         },
         {
           "type": "list-item",
