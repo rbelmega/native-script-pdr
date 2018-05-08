@@ -1,0 +1,18 @@
+<ScrollView orientation="vertical">
+    <WrapLayout class="panel">
+        <WrapLayout *ngFor="let fine of fines; let i = index" class="list-item">
+            <Label
+                    class="fine-desc"
+                    text="{{fine.text}}"
+                    textWrap="true"
+            >
+            </Label>
+            <Label
+                    class="fine"
+                    text="{{fine.fine}}"
+                    textWrap="true"
+            >
+            </Label>
+        </WrapLayout>
+    </WrapLayout>
+</ScrollView>

@@ -1,0 +1,16 @@
+<ScrollView orientation="vertical">
+    <WrapLayout class="list-group">
+        <WrapLayout
+                *ngFor="let list of lists; let i = index"
+                class="list-group-item"
+                textWrap="true"
+                [nsRouterLink]="['/home/signs', list.id]"
+        >
+            <Image src=" {{ list.img }}" class="sign-image"></Image>
+            <Label
+                    text="{{list.desc}}"
+                    textWrap="true"
+            ></Label>
+        </WrapLayout>
+    </WrapLayout>
+</ScrollView>
