@@ -40,17 +40,23 @@ import { DataService } from '../../services/data.service';
     <StackLayout>
         <StackLayout *ngFor="let list of topic.nodes; let i = index">
            <Label
-            *ngIf="list.type == 'p'"
-            class="list-item" 
-            text="{{list.value}}"
-            textWrap="true"
+              *ngIf="list.type == 'p'"
+              class="list-item" 
+              text="{{list.value}}"
+              textWrap="true"
             >
             </Label>
-               <HtmlView
-                 *ngIf="list.type == 'html'"
-                 html="{{list.value}}"
-                 class="list-item"
-               ></HtmlView>
+            <StackLayout *ngIf="list.type == 'list'">
+                <StackLayout *ngFor="let li of list.value">
+                    <Label
+                      *ngIf="li.type == 'list-item'"
+                      class="list-item" 
+                      text="{{li.value}}"
+                      textWrap="true"
+                    >
+                    </Label>
+                </StackLayout>
+             </StackLayout>
         </StackLayout>
     </StackLayout>
 </ScrollView>
