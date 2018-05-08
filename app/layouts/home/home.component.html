@@ -1,0 +1,11 @@
+<ScrollView orientation="vertical">
+    <WrapLayout class="list-group">
+        <Label *ngFor="let list of lists; let i = index"
+                class="list-group-item"
+                text="{{i+1}}. {{list.name}}"
+                textWrap="true"
+                [nsRouterLink]="['/home/topic', list.id]"
+        >
+        </Label>
+    </WrapLayout>
+</ScrollView>

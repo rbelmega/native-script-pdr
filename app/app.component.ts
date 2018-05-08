@@ -3,21 +3,21 @@ import { RouterExtensions } from 'nativescript-angular/router';
 
 @Component({
   selector: 'my-app',
+  styles: [
+    `
+     .router-link-active {
+        background: red;
+        color: red;
+     }
+    `,
+  ],
   template: `
 <ActionBar title="Правила дорожнього руху">
-    <ActionItem ios.systemIcon="21" ios.position="left" (tap)="onNavBtnTap()"></ActionItem>
   <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" (tap)="onNavBtnTap()"></NavigationButton>
 </ActionBar>
-    <DockLayout stretchLastChild="true">
-  <GridLayout dock="bottom" height="60" columns="*, *, *, *" rows="*">
-    <Button [nsRouterLink]="['/']" text="main" row="0"  col="0"></Button>
-    <Button [nsRouterLink]="['/signs']" text="sings" row="0" col="1"></Button>
-    <Button [nsRouterLink]="['/fines']" text="fines" row="0" col="2"></Button>
-    <Button [nsRouterLink]="['/search']" text="search" row="0" col="3"></Button>
-</GridLayout>
-    <router-outlet  dock="top"></router-outlet>
-
-</DockLayout>
+<StackLayout>
+    <page-router-outlet></page-router-outlet>
+</StackLayout>
   `,
 })
 export class AppComponent {
