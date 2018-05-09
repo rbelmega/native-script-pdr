@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("nativescript-angular/router");
-var AppComponent = (function () {
+var AppComponent = /** @class */ (function () {
     function AppComponent(routerExtensions) {
         this.routerExtensions = routerExtensions;
     }
