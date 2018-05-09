@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/observable/forkJoin';
-import 'rxjs/add/operator/map';
-import { Subject } from 'rxjs/Subject';
+import { Observable, Subject, of, forkJoin } from 'rxjs';
 
 @Injectable()
 export class DataService {
@@ -16,23 +12,22 @@ export class DataService {
 
   getList() {
     const data = require('../assets/data/topics/list.json');
-
-    return Observable.of(data);
+    return of(data);
   }
 
   getFines() {
     const data = require('../assets/data/fines/fines.json');
-    return Observable.of(data);
+    return of(data);
   }
 
   getTopicById(id) {
     const data = require(`../assets/data/topics/${id}.json`);
-    return Observable.of(data);
+    return of(data);
   }
 
   getSignById(id) {
     const data = require(`../assets/data/signs/${id}.json`);
-    return Observable.of(data);
+    return of(data);
   }
 
   getAllData() {
@@ -40,7 +35,7 @@ export class DataService {
       this.getTopicById(i + 1)
     );
 
-    return Observable.forkJoin(requests);
+    return forkJoin(requests);
   }
 
   search({ searchText, data$ }) {

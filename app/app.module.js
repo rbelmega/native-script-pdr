@@ -8,7 +8,7 @@ var http_2 = require("@angular/common/http");
 var app_component_1 = require("./app.component");
 var components_module_1 = require("./components.module");
 var data_service_1 = require("./services/data.service");
-var AppModule = (function () {
+var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([

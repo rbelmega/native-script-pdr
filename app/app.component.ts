@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterExtensions } from 'nativescript-angular/router';
+import { RouterExtensions, } from 'nativescript-angular/router';
+import { Page } from "tns-core-modules/ui/page";
 
 @Component({
   selector: 'my-app',
@@ -21,7 +22,11 @@ import { RouterExtensions } from 'nativescript-angular/router';
   `,
 })
 export class AppComponent {
-  constructor(private routerExtensions: RouterExtensions) {}
+  constructor(private routerExtensions: RouterExtensions, private page: Page) {
+      if (!this.page) {
+          throw new Error("Inside ActionBarScope but no Page found in DI.");
+      }
+  }
 
   public onNavBtnTap() {
     this.routerExtensions.back();
