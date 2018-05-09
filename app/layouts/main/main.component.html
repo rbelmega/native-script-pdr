@@ -1,7 +1,13 @@
 <GridLayout columns="*" rows="*, auto">
     <router-outlet row="0" col="0"></router-outlet>
-    <GridLayout row="1" col="0" height="60" columns="*, *, *, *" rows="*">
-        <Button [nsRouterLink]="['/home']" nsRouterActive="router-link-active" text="main" row="0" col="0"></Button>
+    <GridLayout row="1" col="0" height="60" columns="*, *, *, *" rows="*" class="navigation-bar">
+        <Button
+                [nsRouterLink]="['/home']"
+                nsRouterActive="router-link-active"
+                text="&#xf006; main"
+                row="0"
+                col="0">
+        </Button>
         <Button [nsRouterLink]="['/home/signs']" text="sings" row="0" col="1"></Button>
         <Button [nsRouterLink]="['/home/fines']" text="fines" row="0" col="2"></Button>
         <Button [nsRouterLink]="['/home/search']" text="search" row="0" col="3"></Button>

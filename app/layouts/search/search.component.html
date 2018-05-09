@@ -13,16 +13,11 @@
                 textWrap="true">
         </Label>
         <StackLayout *ngFor="let topic of data.searched" class="list-item">
-            <!--<Label-->
-            <!--*ngIf="topic.type == 'p'"-->
-            <!--class="list-item" -->
-            <!--text="{{topic.value | searcher : searchText}}"-->
-            <!--textWrap="true">-->
-            <!--</Label>-->
-            <HtmlView
-                    [html]="topic.value | searcher : searchText"
-                    class="list-item">
-            </HtmlView>
+            <Label
+            class="list-item"
+            text="{{topic.value | searcher : searchText}}"
+            textWrap="true">
+            </Label>
         </StackLayout>
     </StackLayout>
     </WrapLayout>
