@@ -10,26 +10,26 @@
     }
   },
   "dependencies": {
-    "@angular/animations": "~5.2.0",
-    "@angular/common": "~5.2.0",
-    "@angular/compiler": "~5.2.0",
-    "@angular/core": "~5.2.0",
-    "@angular/forms": "~5.2.0",
-    "@angular/http": "~5.2.0",
-    "@angular/platform-browser": "~5.2.0",
-    "@angular/platform-browser-dynamic": "~5.2.0",
-    "@angular/router": "~5.2.0",
-    "nativescript-angular": "~5.3.0",
-    "nativescript-theme-core": "~1.0.4",
-    "reflect-metadata": "~0.1.10",
-    "rxjs": "~5.5.5",
-    "tns-core-modules": "~4.0.0",
-    "zone.js": "~0.8.18"
+    "@angular/animations": "5.2.10",
+    "@angular/common": "5.2.10",
+    "@angular/compiler": "5.2.10",
+    "@angular/core": "5.2.10",
+    "@angular/forms": "5.2.10",
+    "@angular/http": "5.2.10",
+    "@angular/platform-browser": "5.2.10",
+    "@angular/platform-browser-dynamic": "5.2.10",
+    "@angular/router": "5.2.10",
+    "nativescript-angular": "5.3.0",
+    "nativescript-theme-core": "1.0.4",
+    "reflect-metadata": "0.1.12",
+    "rxjs": "5.5.10",
+    "tns-core-modules": "4.0.0",
+    "zone.js": "0.8.26"
   },
   "devDependencies": {
-    "nativescript-dev-typescript": "~0.7.0",
-    "typescript": "~2.7.2",
-    "prettier": "^1.12.1"
+    "nativescript-dev-typescript": "0.7.1",
+    "typescript": "2.8.3",
+    "prettier": "1.12.1"
   },
   "scripts": {
     "prettier": "prettier --single-quote --trailing-comma es5 --write \"./{app,e2e}/**/*.{ts,scss,css}\""
