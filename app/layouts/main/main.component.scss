@@ -4,9 +4,14 @@
   border-top-color: rgb(204, 204, 204);
   box-shadow: 0 -4px 4px #e2e2e2;
 }
+.active {
+  color: red;
+}
 
+.active .icon {
+  color: red;
+}
 
-.font-icon {
-  font-family: 'FontAwesome';
-  color: blue;
+Button {
+  text-align: center;
 }

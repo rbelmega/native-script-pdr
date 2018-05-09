@@ -1,15 +1,41 @@
 <GridLayout columns="*" rows="*, auto">
     <router-outlet row="0" col="0"></router-outlet>
     <GridLayout row="1" col="0" height="60" columns="*, *, *, *" rows="*" class="navigation-bar">
-        <Button
+        <Button row="0" col="0" textWrap="true"
                 [nsRouterLink]="['/home']"
-                nsRouterActive="router-link-active"
-                text="&#xf006; main"
-                row="0"
-                col="0">
+                nsRouterLinkActive="active"
+                [nsRouterLinkActiveOptions]="{exact: true}">
+            <FormattedString>
+                <Span text="&#xf03a;&#x000a;" class="font-icon icon"></Span>
+                <Span text="прввила"></Span>
+            </FormattedString>
         </Button>
-        <Button [nsRouterLink]="['/home/signs']" text="sings" row="0" col="1"></Button>
-        <Button [nsRouterLink]="['/home/fines']" text="fines" row="0" col="2"></Button>
-        <Button [nsRouterLink]="['/home/search']" text="search" row="0" col="3"></Button>
+        <Button row="0" col="1" textWrap="true"
+                [nsRouterLink]="['/home/signs']"
+                [nsRouterLinkActiveOptions]="{exact: true}"
+                nsRouterLinkActive="active">
+            <FormattedString>
+                <Span text="&#xf071;&#x000a;" class="font-icon icon"></Span>
+                <Span text="знаки"></Span>
+            </FormattedString>
+        </Button>
+        <Button row="0" col="2" textWrap="true"
+                [nsRouterLink]="['/home/fines']"
+                [nsRouterLinkActiveOptions]="{exact: true}"
+                nsRouterLinkActive="active">
+            <FormattedString>
+                <Span text="&#xf3d1;&#x000a;" class="font-icon icon"></Span>
+                <Span text="штрафи"></Span>
+            </FormattedString>
+        </Button>
+        <Button row="0" col="3" textWrap="true"
+                [nsRouterLink]="['/home/search']"
+                [nsRouterLinkActiveOptions]="{exact: true}"
+                nsRouterLinkActive="active">
+            <FormattedString>
+                <Span text="&#xf002;&#x000a;" class="font-icon icon"></Span>
+                <Span text="пошук"></Span>
+            </FormattedString>
+        </Button>
     </GridLayout>
 </GridLayout>
