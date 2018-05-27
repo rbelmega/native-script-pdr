@@ -50,8 +50,9 @@ export class DataService {
       data
         .map((item, index) => {
           const searched = (item.nodes || []).filter(node => {
-            const value = (node.value.toLowerCase && node.value.toLowerCase()) || '';
-            return ~(value.indexOf(search));
+            const value =
+              (node.value.toLowerCase && node.value.toLowerCase()) || '';
+            return ~value.indexOf(search);
           });
 
           return {

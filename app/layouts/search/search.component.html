@@ -12,13 +12,13 @@
                 text="{{lists[data.index].name}}"
                 textWrap="true">
         </Label>
-        <StackLayout *ngFor="let topic of data.searched" class="list-item">
-            <Label
-            class="list-item"
-            text="{{topic.value | searcher : searchText}}"
-            textWrap="true">
-            </Label>
-        </StackLayout>
+        <Label *ngFor="let topic of data.searched" textWrap="true" class="list-item">
+            <FormattedString>
+                <Span text="{{topic.value.part_1}}"></Span>
+                <Span text="{{topic.value.searched}}" class="list-item-bold" fontAttributes="Bold"></Span>
+                <Span text="{{topic.value.part_2}}"></Span>
+            </FormattedString>
+        </Label>
     </StackLayout>
     </WrapLayout>
 </ScrollView>
