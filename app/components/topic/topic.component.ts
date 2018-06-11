@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 
 import { DataService } from '../../services/data.service';
@@ -16,11 +16,19 @@ export class TopicComponent implements OnInit {
 
   constructor(
     private dataService: DataService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
     this.activatedRoute.params.forEach(params => {
+      console.log(params.id);
+      if (+params.id === 33) {
+        console.log(params.id);
+
+        return this.router.navigate(['/home/signs']);
+      }
+
       this.dataService.getTopicById(params.id).subscribe(
         data => {
           this.topic = data;

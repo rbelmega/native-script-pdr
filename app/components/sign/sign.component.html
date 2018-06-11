@@ -2,11 +2,14 @@
     <WrapLayout>
         <WrapLayout *ngFor="let list of topic; let i = index">
             <WrapLayout class="list-item">
-                <WrapLayout *ngFor="let hh of list.images">
-                    <Image class="sign-image" src="{{ '~/assets/images/sign/' + signCategory + '/' + hh.src }}" class="sign-image"></Image>
-                    <Label text="{{ hh.desc }}"></Label>
-                </WrapLayout>
-                <Label text="{{ list.desc }}"></Label>
+                <StackLayout *ngFor="let hh of list.images" class="center-alignment">
+                    <Image
+                            src="{{ '~/assets/images/sign/' + signCategory + '/' + hh.src }}"
+                            class="sign-image">
+                    </Image>
+                    <Label class="label" text="{{ hh.desc }}" textWrap="true"></Label>
+                </StackLayout>
+                <Label text="{{ list.desc }}" textWrap="true"></Label>
             </WrapLayout>
         </WrapLayout>
     </WrapLayout>

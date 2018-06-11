@@ -6,7 +6,10 @@
             color="black"
             textFieldHintColor="white">
     </SearchBar>
-    <StackLayout *ngFor="let data of searchData" class="list-group"  [nsRouterLink]="['/home/topic', lists[data.index].id]" >
+    <StackLayout
+            class="list-group"
+            *ngFor="let data of searchData"
+            [nsRouterLink]="['/home/topic', lists[data.index].id]">
         <Label
                 class="list-group-item"
                 text="{{lists[data.index].name}}"

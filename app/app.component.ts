@@ -5,10 +5,10 @@ import { RouterExtensions } from 'nativescript-angular/router';
   selector: 'my-app',
   styles: [
     `
-     .router-link-active {
+      .router-link-active {
         background: red;
         color: red;
-     }
+      }
     `,
   ],
   template: `

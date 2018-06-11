@@ -9,7 +9,7 @@
             >
             </Label>
             <StackLayout *ngIf="list.type == 'list'" class="list">
-                <StackLayout *ngFor="let li of list.value">
+                <StackLayout *ngFor="let li of list.value; ">
                     <Label
                             *ngIf="li.type == 'list-item'"
                             class="list-item sub-list"
@@ -17,8 +17,25 @@
                             textWrap="true"
                     >
                     </Label>
+
+                    <StackLayout *ngIf="li.type == 'table'" class="list">
+                        <GridLayout columns="*,*" rows="*,*" *ngFor="let rows of li.value; let row = index">
+                            <Label
+                                    *ngFor="let td of rows.tr; let col = index"
+                                    row="{{row}}" col="{{col}}"
+                                    class="list-item sub-list table"
+                                    text="{{td}}"
+                                    textWrap="true"
+                            >
+                            </Label>
+                        </GridLayout>
+                    </StackLayout>
+
+
                 </StackLayout>
             </StackLayout>
+
+
         </StackLayout>
     </StackLayout>
 </ScrollView>

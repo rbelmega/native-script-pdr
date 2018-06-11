@@ -45,7 +45,7 @@ export class SearchComponent implements OnInit {
         }))
       )
       .subscribe(data => {
-          this.searchData = data;
+        this.searchData = data;
       });
   }
 
@@ -57,9 +57,9 @@ export class SearchComponent implements OnInit {
     const pos = text.search(search);
 
     return {
-        part_1: text.substring(pos - 40 || 0, pos),
-        searched: search,
-        part_2: text.substring(pos + search.length, pos + search.length + 40),
+      part_1: text.substring(pos - 40 || 0, pos),
+      searched: search,
+      part_2: text.substring(pos + search.length, pos + search.length + 40),
     };
   }
 }

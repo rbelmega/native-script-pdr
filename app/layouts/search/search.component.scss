@@ -8,15 +8,14 @@
   padding-top: 20px;
   padding-bottom: 20px;
   padding-right: 40px;
-  padding-left: 40px;
-  background: #fff;
+  padding-left: 20px;
+  background-color: #f6f6f6;
   color: #000000;
   border: 0;
   margin-bottom: 10px;
   border-bottom-color: #ececec;
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  line-height: 16px;
 }
 
 .list-group-item:last-of-type {
@@ -32,8 +31,10 @@
 
 .list-item {
   margin-bottom: 20px;
-  padding: 0 30px;
+  padding: 0 30px 0 40px;
 }
+
 .list-item-bold {
-  color: red;
+  font-weight: bold;
+  background: rgba(118, 205, 217, 0.52);
 }
